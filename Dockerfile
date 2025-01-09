@@ -1,5 +1,7 @@
-FROM node:lts-buster
+# Use the specified Node.js version (22.x) as the base image
+FROM node:22-buster
 
+# Install necessary dependencies
 RUN apt-get update && \
   apt-get install -y \
   ffmpeg \
@@ -8,18 +10,21 @@ RUN apt-get update && \
   apt-get upgrade -y && \
   npm i pm2 -g && \
   rm -rf /var/lib/apt/lists/*
-  
-COPY package.json .
 
+# Set the working directory inside the container
+WORKDIR /usr/src/app
 
-RUN npm install pm2 -g
+# Copy package.json and package-lock.json files to the container
+COPY package*.json ./
+
+# Install the dependencies
 RUN npm install --legacy-peer-deps
-RUN nvm install 22
-RUN nvm use 22
 
-
+# Copy the rest of your application code to the container
 COPY . .
 
+# Expose the port your application will run on
 EXPOSE 3000
 
-CMD ["node","index.js" ]
+# Command to run your bot
+CMD ["node", "index.js"]
