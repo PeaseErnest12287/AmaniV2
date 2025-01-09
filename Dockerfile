@@ -14,6 +14,9 @@ COPY package.json .
 
 RUN npm install pm2 -g
 RUN npm install --legacy-peer-deps
+RUN nvm install 22
+RUN nvm use 22
+
 
 COPY . .
 

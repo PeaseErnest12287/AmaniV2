@@ -13,4 +13,4 @@
 
 
 #### ```DAVID CYRIL PROFILE VIEWS 🧚```
-![Visitor Count](https://profile-counter.glitch.me/DeeCeeXxx/count.svg)
+![Visitor Count](https://profile-counter.glitch.me/PeaseErnest12287/count.svg)
